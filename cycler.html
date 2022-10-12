@@ -25,7 +25,7 @@
         button {
             margin: 15px;
         }
-        #inputElement {
+        #elementsInput {
             width: 300px;
             margin-left: 400px;
         }
@@ -47,8 +47,8 @@
             <div class="cycler bg-info text-white">Row item 2</div>
             <div class="cycler bg-warning text-white">Row item 3</div>
         </div><br>
-        <label for="inputElement">Type something </label>
-        <input class="form-control" type="text" name="input" id="inputElement" value="">
+        <label for="elementsInput">Type something </label>
+        <input class="form-control" type="text" name="input" id="elementsInput" value="">
         <br>
         <p class="message">
             Press the button to create an new element of type div.
@@ -60,31 +60,33 @@
         </div>
     </div>
     <script>
-        function makeNewDiv() {
-            let element = document.createElement("div")
-            let value = document.getElementById("inputElement").value
+                 function makeNewDiv() {
+                let element = document.createElement("div")
+                let value = document.getElementById("elementsInput").value
 
-            element.innerHTML = value
-            element.className = "cycler"
+                element.innerHTML = value
+                element.className = "cycler"
 
-            let container = document.getElementById("target")
-            container.appendChild(element)
-        }
-        function get() {
-            let cyclerItems = document.getElementsByClassName("cycler")
-            if (cyclerItems.length > 0) {
-                cyclerItems[cyclerItems.length - 1].remove()
-            }
-        }
-        function spin() {
-            let cyclerItems = document.getElementsByClassName("cycler")
-            if (cyclerItems.length > 1) {
-                removedItem = cyclerItems[cyclerItems.length - 1]
-                cyclerItems[cyclerItems.length - 1].remove()
                 let container = document.getElementById("target")
-                container.insertBefore(removedItem, container.firstChild)
+                container.appendChild(element)
             }
-        }
+
+            function get() {
+                let itemsCycler = document.getElementsByClassName("cycler")
+                if(itemsCycler.length > 0) {
+                    itemsCycler[itemsCycler.length-1].remove()
+                }
+            }
+
+            function spin() {
+                let itemsCycler = document.getElementsByClassName("cycler")
+                if(itemsCycler.length > 1) {
+                    removedItem = itemsCycler[itemsCycler.length-1]
+                    itemsCycler[itemsCycler.length-1].remove()
+                    let container = document.getElementById("target")
+                    container.insertBefore(removedItem, container.firstChild)
+                }
+            }
     </script>
 
 </body>
