@@ -37,8 +37,10 @@
 <body>
     <h1>Treasure hunt Pitchaiah Lella</h1> <br>
     <div class="container">
+        <div class="row">
+            <div class="col-11 search text-center text-danger">Click on the chests to search for treasure</div><br>
+        </div><br>
         <div class="row menu">
-            <div class="col-sm row-item  bg-danger search">Click on the chests to search for treasure</div>
             <div id="chests" class="col-sm row-item bg-info chests">Number of chests checked is zero.</div>
             <div id="score" class="col-sm row-item bg-warning score">Score is unknown.</div>
             <div id="help" class="col-sm row-item bg-success help">Help report.</div>
@@ -194,17 +196,17 @@
             score += 2
             document.getElementById("score").innerHTML = "Score is " + score
             if (lastCheck_row == treasureLocation_row) {
-                if (lastCheck_column < treasureLocation_column) {
+                if (lastCheck_column > treasureLocation_column) {
                     document.getElementById("help").innerHTML = "Left"
-                } else if (lastCheck_column > treasureLocation_column) {
+                } else if (lastCheck_column < treasureLocation_column) {
                     document.getElementById("help").innerHTML = "Right"
                 } else {
                     document.getElementById("help").innerHTML = "Sorry, no help available"
                 }
             } else if (lastCheck_column == treasureLocation_column) {
-                if (lastCheck_row < treasureLocation_row) {
+                if (lastCheck_row > treasureLocation_row) {
                     document.getElementById("help").innerHTML = "Down"
-                } else if (lastCheck_row > treasureLocation_row) {
+                } else if (lastCheck_row < treasureLocation_row) {
                     document.getElementById("help").innerHTML = "Up"
                 } else {
                     document.getElementById("help").innerHTML = "Sorry, no help available"
