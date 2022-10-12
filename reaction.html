@@ -64,19 +64,17 @@
         </div>
     </div>
     <script>
-        var myTime = Date.now()
+        var myTime = undefined;
 
         function recordReact() {
-            myTime = Date.now()
-            console.log(myTime)
+            myTime = Date.now();
+            console.log(myTime);
         }
         function startTime() {
-            let countdown = Math.floor(Math.random() * 9) + 2
-            console.log()
-            for (let i = 0; i < countdown; i++) {
+            for (let i = 0; i < 4; i++) {
                 setTimeout(() => {
-                    document.getElementById("countdown").innerHTML = i
-                }, ((countdown - 1 - i) * 1000));
+                    document.getElementById("countdown").innerHTML = i;
+                }, ((3 - i) * 1000));
             }
             setTimeout(() => {
                 if (myTime == undefined) {
